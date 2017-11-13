@@ -7,6 +7,7 @@ package com.cice.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,14 @@ public class Servlet1 extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher rd = req.getRequestDispatcher("Servlet2");
+        //rd.forward(req, resp); // si hago forward, lo de abajo no se ejecuta.
         
+        rd.include(req, resp); // si hago include si ejecuta lo siguiente
+        
+        
+        PrintWriter out=resp.getWriter();
+        out.print("Hola amigo mío...");
     }
 
 

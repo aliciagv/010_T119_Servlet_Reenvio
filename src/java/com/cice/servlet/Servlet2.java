@@ -20,6 +20,8 @@ public class Servlet2 extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+         PrintWriter out = resp.getWriter();
+         out.print(req.getParameter("dato"));
          
     }
 
